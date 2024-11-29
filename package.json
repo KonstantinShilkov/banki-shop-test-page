@@ -22,7 +22,9 @@
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.81.0",
     "sass-loader": "^16.0.3",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "prettier": "^2.x.x",
+  "prettier-plugin-vue": "^2.x.x"
   },
   "eslintConfig": {
     "root": true,

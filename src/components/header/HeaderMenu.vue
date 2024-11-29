@@ -1,52 +1,63 @@
 <template>
   <div class="headerMenuContainer">
-      <div class="menuLinks">
-          <router-link to="/catalog">Каталог</router-link>
-          <router-link to="/delivery">Доставка</router-link>
-          <router-link to="/payment">Оплата</router-link>
-          <router-link to="/contacts">Контакты</router-link>
-          <router-link to="/about">О Компании</router-link>
-      </div>
-      <div class="searchInput">
-          <form @submit.prevent="handleSearch"> <!-- Обработка отправки формы -->
-              <input 
-                  type="text" 
-                  v-model="searchQuery" 
-                  placeholder="Поиск по названию картины" 
-              />
-              <button type="submit">Поиск</button>
-          </form>
-      </div>  
+    <div class="menuLinks">
+      <router-link to="/catalog" exact-active-class="router-link-active"
+        >Каталог</router-link
+      >
+      <router-link to="/delivery" exact-active-class="router-link-active"
+        >Доставка</router-link
+      >
+      <router-link to="/payment" exact-active-class="router-link-active"
+        >Оплата</router-link
+      >
+      <router-link to="/contacts" exact-active-class="router-link-active"
+        >Контакты</router-link
+      >
+      <router-link to="/about" exact-active-class="router-link-active"
+        >О Компании</router-link
+      >
+    </div>
+    <div class="searchInput">
+      <form @submit.prevent="handleSearch">
+        <input
+          type="text"
+          v-model="searchQuery"
+          placeholder="Поиск по названию картины"
+        />
+        <button type="submit">Поиск</button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HeaderMenu',
+  name: "HeaderMenu",
   data() {
-      return {
-          searchQuery: '', // Переменная для хранения значения поля ввода
-      };
+    return {
+      searchQuery: "",
+    };
   },
   methods: {
-      handleSearch() {
-          console.log(this.searchQuery); // Вывод введенных данных в консоль
-          this.searchQuery = ''; // Очистка поля ввода после отправки
-      },
+    handleSearch() {
+      console.log(this.searchQuery);
+      this.searchQuery = "";
+    },
   },
 };
 </script>
 
 <style>
-.headerMenuContainer{
+.headerMenuContainer {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-
 }
 .menuLinks {
   display: flex;
   gap: 48px;
+  margin-left: 448px;
+  flex-shrink: 0;
 }
-
 </style>

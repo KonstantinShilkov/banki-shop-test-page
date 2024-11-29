@@ -1,18 +1,18 @@
 import Vue from "vue";
 import Router from "vue-router";
-import HomePage from "../pages/HomePage.vue";
+import Catalog from "../pages/Catalog.vue";
 
 Vue.use(Router);
 
 const routes = [
   {
-    path: "/homepage",
-    name: "Home",
-    component: HomePage,
+    path: "/catalog",
+    name: "Catalog",
+    component: Catalog,
   },
   {
     path: "/",
-    redirect: "/homepage",
+    redirect: "/catalog",
   },
 ];
 
