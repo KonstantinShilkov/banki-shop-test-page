@@ -1,5 +1,5 @@
 <template>
-  <div class="headerMenuContainer">
+  <div class="headerMenuMainContainer">
     <HeaderMenu />
   </div>
 </template>
@@ -15,9 +15,8 @@ export default {
 </script>
 
 <style>
-.headerMenuContainer {
+.headerMenuMainContainer {
   display: flex;
   width: 100%;
-  justify-content: center;
 }
 </style>
