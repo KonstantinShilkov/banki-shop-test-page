@@ -1,3 +1,10 @@
+html,
+body {
+  width: 100%;
+  min-width: 360px; /* Минимальная ширина */
+  overflow-x: auto; /* Разрешает горизонтальную прокрутку */
+}
+
 /* Global Variables */
 :root {
   --font-main: "Merriweather";
@@ -23,7 +30,19 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  // font-size-adjust: 0.5;
+}
+
+// Safari styles adjustment
+@supports (-webkit-appearance: none) {
+  .cartButton {
+    font-weight: 590 !important;
+  }
+  .searchInput button {
+    font-weight: 590 !important;
+  }
+  .cardsContainerTittle h1 {
+    font-weight: 590;
+  }
 }
 
 h1 {
@@ -73,6 +92,7 @@ h5 {
   gap: 0px;
   border-bottom: 1px solid #e1e1e1;
   box-sizing: border-box;
+  padding: 0 30px;
 }
 
 /* Link Styling */
@@ -104,6 +124,7 @@ a:hover {
   border: 1px solid var(--search-text-inactive);
   position: relative;
   box-sizing: border-box;
+  cursor: default;
 
   &:focus-within {
     border: 1px solid var(--search-text-active);
@@ -129,6 +150,7 @@ a:hover {
       border: none;
       padding: 0px;
       box-sizing: border-box;
+      cursor: default;
 
       &::placeholder {
         color: var(--search-text-inactive);
@@ -155,7 +177,7 @@ a:hover {
     font-weight: 700;
     color: var(--font-color);
     border: none;
-    cursor: pointer;
+    cursor: default;
     box-sizing: border-box;
 
     &:hover {
@@ -178,7 +200,8 @@ a:hover {
   margin-top: 45px;
   margin-bottom: 39px;
   width: 100%;
-  min-width: 1216px;
+  // min-width: 1216px;
+  cursor: default;
 }
 
 .cardsContainerTittle h1 {
@@ -237,6 +260,7 @@ a:hover {
   width: 220px;
   height: 54px;
   margin: 12px 36px 0 24px;
+  cursor: default;
 }
 
 .priceButtonBox {
@@ -245,6 +269,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   margin-top: 22px;
+  cursor: default;
 }
 
 .priceButtonBoxSold {
@@ -303,7 +328,7 @@ a:hover {
   background-color: var(--button-normal);
   border: none;
   box-sizing: border-box;
-  cursor: pointer;
+  cursor: default;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -354,13 +379,14 @@ a:hover {
 
 .footerBar {
   display: flex;
-  /* width: 1920px; */
   min-height: 96px;
+  // width: 1920px;
   background-color: #eceaea;
   width: 100%;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  padding: 0 30px;
 }
 
 .footerBar a {
@@ -386,6 +412,7 @@ a:hover {
 .phoneNumber {
   display: flex;
   box-sizing: border-box;
+  cursor: default;
 }
 .phoneIcon {
   display: flex;
@@ -407,4 +434,5 @@ a:hover {
 
 .address {
   display: flex;
+  cursor: default;
 }

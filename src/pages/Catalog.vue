@@ -11,10 +11,10 @@
           :key="card.id"
           :class="{ soldCard: card.isSold }"
         >
-          <div class="cardImage">
-            <img :src="card.image" :alt="card.title" class="cardImage" />
+          <div class="cardImage" @click="openModal(card)">
+            <img :src="card.images[0]" :alt="card.title" class="cardImage" />
           </div>
-          <div class="cardTittle">
+          <div class="cardTittle" @click="openModal(card)">
             <h2>{{ card.title }}</h2>
           </div>
           <div
@@ -55,15 +55,29 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal for card information -->
+    <CardInfo
+      :card="selectedCard"
+      :isVisible="isModalVisible"
+      @close="closeModal"
+    />
   </div>
 </template>
 
 <script>
+import CardInfo from "@/components/CardInfo.vue";
+
 export default {
   name: "CatalogPage",
+  components: {
+    CardInfo,
+  },
   data() {
     return {
       isLoading: null,
+      isModalVisible: false,
+      selectedCard: null,
     };
   },
   computed: {
@@ -91,6 +105,14 @@ export default {
         }
         this.isLoading = null;
       }, 2000);
+    },
+    openModal(card) {
+      this.selectedCard = card;
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+      this.selectedCard = null;
     },
   },
 };
