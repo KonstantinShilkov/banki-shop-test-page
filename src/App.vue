@@ -44,5 +44,6 @@ export default {
   /* width: 1920px; */
   height: 100vh;
   padding: 0 30px;
+  overflow: visible; 
 }
 </style>

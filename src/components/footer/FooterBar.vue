@@ -16,5 +16,8 @@ export default {
 .footerNavContainer{
   display: flex;
   width: 100%;
+  justify-content: center; 
+  overflow-x: auto; 
+  flex-wrap: nowrap;
 }
 </style>

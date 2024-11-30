@@ -47,7 +47,8 @@ export default {
     font-weight: 400;
     line-height: 21px;
     color: #555555;
-    /* padding: 0 30px; */
+    overflow-x: auto;
+    /* padding: 0 20px; */
   }
 
 
@@ -55,6 +56,8 @@ export default {
   display: flex;
   gap: 48px;
   margin-left: 137px;
-  flex-shrink: 0;
-}
+  /* flex-shrink: 0; */
+  white-space: nowrap;
+  /* overflow-x: auto; */
+  }
 </style>
