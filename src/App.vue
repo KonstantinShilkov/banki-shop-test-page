@@ -41,15 +41,8 @@ export default {
 
 .wrappedContainer {
   display: flex;
-  width: 1920px;
+  /* width: 1920px; */
   height: 100vh;
-}
-
-.footerBar {
-  display: flex;
-  width: 1920px;
-  height: 96px;
-  justify-content: center;
-  align-items: center;
+  padding: 0 30px;
 }
 </style>

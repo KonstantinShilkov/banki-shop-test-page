@@ -1,11 +1,20 @@
 <template>
-  <div>Footer</div>
+  <div class="footerNavContainer"><FooterNavigation /></div>
 </template>
 
 <script>
+import FooterNavigation from "./FooterNavigation.vue";
 export default {
   name: "FooterBar",
+  components: {
+    FooterNavigation,
+  },
 };
 </script>
 
-<style></style>
+<style>
+.footerNavContainer{
+  display: flex;
+  width: 100%;
+}
+</style>

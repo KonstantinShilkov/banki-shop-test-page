@@ -1,11 +1,13 @@
 <template>
   <div class="catalogContainer">
     <div class="cardsContainer">
-      <div class="cardsContainerTittle"><h1>Картины эпохи Возрождения</h1></div>
+      <div class="cardsContainerTittle">
+        <h1>Картины эпохи Возрождения</h1>
+      </div>
       <div class="cardsBox">
         <div
           class="card"
-          v-for="card in cards"
+          v-for="card in filteredCards"
           :key="card.id"
           :class="{ soldCard: card.isSold }"
         >
@@ -23,10 +25,7 @@
               <div v-if="card.isSold" class="soldText">Продана на аукционе</div>
               <div v-else>
                 <div
-                  :class="{
-                    cardPrice: true,
-                    cancelPrice: card.discountPrice,
-                  }"
+                  :class="{ cardPrice: true, cancelPrice: card.discountPrice }"
                 >
                   {{ card.price }}
                 </div>
@@ -35,9 +34,22 @@
                 </div>
               </div>
             </div>
-
             <div class="cardButton" v-if="!card.isSold">
-              <button class="cartButton">Купить</button>
+              <button
+                class="cartButton"
+                :class="{ inCart: isInCart(card.id) }"
+                :disabled="isLoading === card.id"
+                @click="handleCartAction(card.id)"
+              >
+                <template v-if="isLoading === card.id">
+                  <span class="loader"></span>
+                </template>
+                <template v-else-if="isInCart(card.id)">
+                  <img src="@/assets/icons/feather_check.svg" />
+                  В корзине
+                </template>
+                <template v-else> Купить </template>
+              </button>
             </div>
           </div>
         </div>
@@ -51,47 +63,34 @@ export default {
   name: "CatalogPage",
   data() {
     return {
-      cards: [
-        {
-          id: 1,
-          image: require("@/assets/cardsImages/1.jpg"),
-          title: "«Рождение Венеры» Сандро Боттичелли",
-          price: "2 000 000 $",
-          discountPrice: "1 000 000 $",
-          isSold: false,
-        },
-        {
-          id: 2,
-          image: require("@/assets/cardsImages/2.jpg"),
-          title: "«Тайная вечеря»  Леонардо да Винчи",
-          price: "3 000 000 $",
-          discountPrice: null,
-          isSold: false,
-        },
-        {
-          id: 3,
-          image: require("@/assets/cardsImages/3.jpg"),
-          title: "«Сотворение Адама» Микеланджело",
-          price: "6 000 000 $",
-          discountPrice: "5 000 000 $",
-          isSold: false,
-        },
-        {
-          id: 4,
-          image: require("@/assets/cardsImages/4.jpg"),
-          title: "«Урок анатомии»  Рембрандт",
-          price: "2000 ₽",
-          discountPrice: null,
-          isSold: true,
-        },
-      ],
+      isLoading: null,
     };
   },
-  methods: {
-    handleBuy(card) {
-      console.log(
-        `Покупка: ${card.title} за ${card.discountPrice || card.price}`
+  computed: {
+    cards() {
+      return this.$store.getters.getCards;
+    },
+    filteredCards() {
+      const searchQuery = this.$store.state.searchQuery.toLowerCase();
+      return this.cards.filter((card) =>
+        card.title.toLowerCase().includes(searchQuery)
       );
+    },
+  },
+  methods: {
+    isInCart(cardId) {
+      return this.$store.getters.getCartItems.includes(cardId);
+    },
+    handleCartAction(cardId) {
+      this.isLoading = cardId;
+      setTimeout(() => {
+        if (this.isInCart(cardId)) {
+          this.$store.dispatch("removeFromCart", cardId);
+        } else {
+          this.$store.dispatch("addToCart", cardId);
+        }
+        this.isLoading = null;
+      }, 2000);
     },
   },
 };

@@ -38,26 +38,30 @@ export default {
       searchQuery: "",
     };
   },
+  watch: {
+    searchQuery(newQuery) {
+      this.$store.dispatch("updateSearchQuery", newQuery);
+    },
+  },
   methods: {
     handleSearch() {
-      console.log(this.searchQuery);
-      this.searchQuery = "";
+      this.$store.dispatch("updateSearchQuery", this.searchQuery);
     },
   },
 };
 </script>
-
 <style>
 .headerMenuContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  justify-content: center;
+
 }
 .menuLinks {
   display: flex;
   gap: 48px;
-  margin-left: 448px;
+  margin-left: 94px;
   flex-shrink: 0;
 }
 </style>
