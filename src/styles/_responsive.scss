@@ -1,0 +1,51 @@
+@media (max-width: 1320px) {
+  .mainContainer {
+    min-width: 100%;
+  }
+  .searchInput {
+    margin-left: 20px;
+  }
+  .locationBox {
+    margin-left: 15px;
+  }
+
+  .contactPhoneBox {
+    margin-left: 15px;
+  }
+
+  .headerMenuContainer {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .footerMenuContainer {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .menuLinksFooter {
+    margin-left: 94px;
+  }
+}
+@media (max-width: 1230px) {
+  .cardsContainerTittle {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 1160px) {
+  .menuLinks {
+    margin-left: 20px;
+    justify-content: space-between;
+    gap: 0;
+    width: 70%;
+  }
+  .menuLinksFooter {
+    margin-left: 20px;
+    justify-content: space-between;
+    gap: 0;
+    width: 70%;
+  }
+}
+
+@media (max-width: 950px) {
+}

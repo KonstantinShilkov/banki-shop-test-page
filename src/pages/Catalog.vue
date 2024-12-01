@@ -118,15 +118,4 @@ export default {
 };
 </script>
 
-<style>
-.catalogContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.cardsContainer {
-  display: flex;
-  flex-direction: column;
-}
-</style>
+<style></style>
