@@ -1,0 +1,125 @@
+/* HeaderBar */
+.headerBar {
+  display: flex;
+  align-content: center;
+  // width: 1920px;
+  width: 100%;
+  min-height: 97px;
+  top: -1px;
+  gap: 0px;
+  border-bottom: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  // padding: 0 30px;
+}
+
+.headerMenuMainContainer {
+  display: flex;
+  width: 100%;
+}
+
+.headerMenuContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.menuLinks {
+  display: flex;
+  gap: 48px;
+  margin-left: 94px;
+}
+
+/* Link Styling */
+a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  font-family: var(--font-main);
+  cursor: default;
+  color: var(--search-text-active);
+}
+
+a:hover {
+  color: #23212179;
+}
+
+.router-link-active {
+  color: #23212179;
+}
+
+.searchInput {
+  display: flex;
+  position: relative;
+  margin-left: 162px;
+  width: 416px;
+  height: 48px;
+  border: 1px solid var(--search-text-inactive);
+  box-sizing: border-box;
+  cursor: default;
+
+  &:focus-within {
+    border: 1px solid var(--search-text-active);
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+    width: 218px;
+    height: 21px;
+    margin: 13px 182px 14px 16px;
+    box-sizing: border-box;
+
+    input {
+      font-family: var(--font-main);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      width: 218px;
+      height: 21px;
+      background-color: #f6f3f3;
+      border: none;
+      padding: 0px;
+      box-sizing: border-box;
+      cursor: default;
+
+      &::placeholder {
+        color: var(--search-text-inactive);
+      }
+
+      &:focus {
+        outline: none;
+        color: var(--search-text-active);
+        border: none;
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 122px;
+    height: 48px;
+    padding: 0;
+    background-color: var(--button-search);
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--font-color);
+    border: none;
+    cursor: default;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: var(--button-hover);
+    }
+
+    &:active {
+      transform: scale(0.999);
+      background-color: darken(#776763, 10%);
+    }
+  }
+}

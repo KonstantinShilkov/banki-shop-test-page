@@ -55,23 +55,32 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal for card information -->
-    <CardInfo
-      :card="selectedCard"
-      :isVisible="isModalVisible"
-      @close="closeModal"
-    />
+    <template v-if="isCardMobileView">
+      <CardInfoReduced
+        :card="selectedCard"
+        :isVisible="isModalVisible"
+        @close="closeModal"
+      />
+    </template>
+    <template v-else>
+      <CardInfo
+        :card="selectedCard"
+        :isVisible="isModalVisible"
+        @close="closeModal"
+      />
+    </template>
   </div>
 </template>
 
 <script>
 import CardInfo from "@/components/CardInfo.vue";
+import CardInfoReduced from "@/components/CardInfoReduced.vue";
 
 export default {
   name: "CatalogPage",
   components: {
     CardInfo,
+    CardInfoReduced,
   },
   data() {
     return {
@@ -90,6 +99,16 @@ export default {
         card.title.toLowerCase().includes(searchQuery)
       );
     },
+    isCardMobileView() {
+      return this.$store.getters.isCardMobileView;
+    },
+  },
+  mounted() {
+    this.updateViewSize();
+    window.addEventListener("resize", this.updateViewSize);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.updateViewSize);
   },
   methods: {
     isInCart(cardId) {
@@ -114,8 +133,12 @@ export default {
       this.isModalVisible = false;
       this.selectedCard = null;
     },
+    updateViewSize() {
+      const isCardMobileView = window.innerWidth <= 800;
+      this.$store.dispatch("updateIsCardMobileView", isCardMobileView);
+    },
   },
 };
 </script>
 
-<style></style>
+<style scoped></style>

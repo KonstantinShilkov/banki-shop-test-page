@@ -1,0 +1,195 @@
+/* Catalog Container Styles */
+
+.catalogContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.cardsContainerTittle {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  margin-top: 45px;
+  margin-bottom: 39px;
+  width: 100%;
+  min-width: 1216px;
+  cursor: default;
+}
+
+.cardsContainerTittle h1 {
+  margin: 0;
+}
+
+.cardsBox {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 328px;
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+}
+
+.soldCard {
+  opacity: 50%;
+}
+
+.soldText {
+  font-family: var(--font-main);
+  width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-underline-position: from-font;
+  color: #343030;
+}
+
+.cardImage {
+  width: 100%;
+  height: 168px;
+  box-sizing: border-box;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 160px;
+  border: none;
+  border-bottom: 1px solid #e7e7e7;
+  box-sizing: border-box;
+}
+
+.cardTittle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 220px;
+  height: 54px;
+  margin: 12px 36px 0 24px;
+  cursor: default;
+}
+
+.priceButtonBox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  cursor: default;
+}
+
+.priceButtonBoxSold {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  justify-content: start;
+  align-items: center;
+  margin-left: 24px;
+}
+
+.priceBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardPrice {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  color: #343030;
+}
+
+.cancelPrice {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  text-align: left;
+  text-decoration-line: line-through;
+  text-underline-position: from-font;
+  color: #a0a0a0;
+}
+
+.cardButton {
+  display: flex;
+  margin-left: 25px;
+}
+
+.cartButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 118px;
+  height: 48px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+  text-underline-position: from-font;
+  color: var(--font-color);
+  background-color: var(--button-normal);
+  border: none;
+  box-sizing: border-box;
+  cursor: default;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  &:active {
+    transform: scale(0.999);
+    background-color: darken(#776763, 10%);
+  }
+
+  &:disabled {
+    background-color: var(--button-disabled);
+    pointer-events: none;
+  }
+
+  &.in-cart {
+    background-color: var(--button-in-cart);
+    &:hover {
+      background-color: var(--button-hover);
+    }
+  }
+}
+
+.cartButton img {
+  margin-right: 4px;
+  height: 20px;
+  width: 20px;
+}
+
+.loader {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

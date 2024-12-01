@@ -29,7 +29,6 @@ export default {
 .mainContainer {
   display: flex;
   flex-direction: column;
-  justify-items: center;
   align-items: center;
   background-color: #f6f3f3;
   height: 100vh;
@@ -40,6 +39,7 @@ export default {
 .wrappedContainer {
   display: flex;
   height: 100vh;
-  padding: 0 30px;
+  overflow: auto;  
+padding: 0 30px;
 }
 </style>
