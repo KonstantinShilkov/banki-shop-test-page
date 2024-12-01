@@ -31,19 +31,15 @@ export default {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  width: auto;
-  height: auto;
-  overflow-x: auto;
-  overflow-y: auto;
   background-color: #f6f3f3;
   height: 100vh;
+  min-width: 1320px;
+
 }
 
 .wrappedContainer {
   display: flex;
-  /* width: 1920px; */
   height: 100vh;
   padding: 0 30px;
-  overflow: visible; 
 }
 </style>

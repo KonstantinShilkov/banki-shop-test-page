@@ -50,18 +50,4 @@ export default {
   },
 };
 </script>
-<style>
-.headerMenuContainer {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-
-}
-.menuLinks {
-  display: flex;
-  gap: 48px;
-  margin-left: 94px;
-  flex-shrink: 0;
-}
-</style>
+<style></style>

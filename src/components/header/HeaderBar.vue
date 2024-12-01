@@ -14,9 +14,4 @@ export default {
 };
 </script>
 
-<style>
-.headerMenuMainContainer {
-  display: flex;
-  width: 100%;
-}
-</style>
+<style></style>
