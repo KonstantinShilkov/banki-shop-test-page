@@ -69,6 +69,9 @@ export default new Vuex.Store({
     ],
     searchQuery: "",
     cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
+    isDesktopView: false,
+    isMobileView: false,
+    isCardMobileView: false,
   },
   mutations: {
     setCards(state, newCards) {
@@ -84,6 +87,15 @@ export default new Vuex.Store({
     },
     removeFromCart(state, cardId) {
       state.cartItems = state.cartItems.filter((id) => id !== cardId);
+    },
+    setIsDesktopView(state, isDesktop) {
+      state.isDesktopView = isDesktop;
+    },
+    setIsMobileView(state, isMobile) {
+      state.isMobileView = isMobile;
+    },
+    setIsCardMobileView(state, isCardMobile) {
+      state.isCardMobileView = isCardMobile;
     },
   },
   actions: {
@@ -101,10 +113,22 @@ export default new Vuex.Store({
       commit("removeFromCart", cardId);
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+    updateIsDesktopView({ commit }, isDesktop) {
+      commit("setIsDesktopView", isDesktop);
+    },
+    updateIsMobileView({ commit }, isMobile) {
+      commit("setIsMobileView", isMobile);
+    },
+    updateIsCardMobileView({ commit }, isCardMobileView) {
+      commit("setIsCardMobileView", isCardMobileView);
+    },
   },
   getters: {
     getCards: (state) => state.cards,
     getSearchQuery: (state) => state.searchQuery,
     getCartItems: (state) => state.cartItems,
+    isDesktopView: (state) => state.isDesktopView,
+    isMobileView: (state) => state.isMobileView,
+    isCardMobileView: (state) => state.isCardMobileView,
   },
 });

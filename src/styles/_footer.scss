@@ -1,0 +1,90 @@
+/* FooterBar  */
+
+.footerBar {
+  display: flex;
+  min-height: 96px;
+  background-color: #eceaea;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.footerBar a {
+  color: #555555;
+}
+
+.footerBar a:hover {
+  color: #23212179;
+}
+
+.footerBar .router-link-active {
+  color: #23212179;
+}
+
+.footerNavContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.footerMenuContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #555555;
+  overflow-x: auto;
+}
+
+.menuLinksFooter {
+  display: flex;
+  gap: 48px;
+  margin-left: 137px;
+  white-space: nowrap;
+}
+.phoneLocationContainer {
+  display: flex;
+  margin-left: 126px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.contactPhoneBox {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.phoneNumber {
+  display: flex;
+  box-sizing: border-box;
+  cursor: default;
+}
+.phoneIcon {
+  display: flex;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+.locationBox {
+  display: flex;
+  margin-left: 51px;
+  align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.locationIcon {
+  display: flex;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+.address {
+  display: flex;
+  cursor: default;
+}

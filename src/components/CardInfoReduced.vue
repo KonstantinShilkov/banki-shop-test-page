@@ -1,16 +1,16 @@
 <template>
   <div class="cardInfoModal" v-if="isVisible" @click.self="closeModal">
-    <div class="cardInfo">
-      <div class="cardInfoImgTittlePrice">
+    <div class="cardInfoColumn">
+      <div class="cardInfoContent">
+        <div class="cardInfoTittle">
+          <h2>{{ card.title }}</h2>
+        </div>
         <div class="cardInfoImage">
           <span class="arrow-icon left" @click="prevImage">❮</span>
           <div class="image-container">
             <img :src="currentImage" :alt="card.title" />
           </div>
           <span class="arrow-icon right" @click="nextImage">❯</span>
-        </div>
-        <div class="cardInfoTittle">
-          <h2>{{ card.title }}</h2>
         </div>
         <div class="priceBox">
           <div v-if="card.isSold" class="soldText">Продана на аукционе</div>
@@ -23,9 +23,9 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="cardInfoDetails">
-        <p class="cardInfoDescription">{{ card.details }}</p>
+        <div class="cardInfoDescription">
+          <p>{{ card.details }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -91,21 +91,31 @@ export default {
     z-index: 999;
   }
   
-  .cardInfo {
-    display: flex;
-    background-color: #f6f3f3;
-    padding: 20px;
-    width: 1000px;
-    height: 500px;
-    box-sizing: border-box;
-  }
-  
-  .cardInfoImgTittlePrice {
+  .cardInfoColumn {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background-color: #f6f3f3;
+    width: 350px;
+    height: 400px; 
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .cardInfoContent {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
+    overflow-y: auto; 
+  }
+  
+  .cardInfoTittle {
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
   }
   
   .cardInfoImage {
@@ -114,58 +124,68 @@ export default {
     align-items: center;
     position: relative;
     width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
   }
   
   .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 300px; 
-
-    overflow: hidden; 
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
   }
   
   .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: contain; 
-    transition: opacity 0.5s ease-in-out; 
+    object-fit: contain;
   }
   
   .arrow-icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 30px;
+    font-size: 20px;
     color: rgba(213, 213, 213, 0.926);
     user-select: none;
     transition: background 0.3s, transform 0.4s;
   }
   
   .arrow-icon.left {
-    left: 20px;
+    left: 10px;
   }
   
   .arrow-icon.right {
-    right: 20px;
+    right: 10px;
   }
   
   .arrow-icon:hover {
-    transform: translateY(-50%) scale(1.3);
+    transform: translateY(-50%) scale(1.2);
   }
   
-  .cardInfoDetails {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    font-size: 18px;
-    margin-bottom: 80px;
-    margin-left: 20px;
+  .priceBox {
+    text-align: center;
+    margin-bottom: 10px;
   }
   
-  .cardInfoModal .cardInfo {
-    cursor: default;
+  .cardInfoDescription {
+    font-size: 14px;
+    text-align: left;
+    color: #343030;
+    margin-top: 10px;
+    padding-right: 5px;
+  }
+  
+  .cardInfoDescription::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .cardInfoDescription::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+  
+  .cardInfoDescription::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
   }
 </style>
